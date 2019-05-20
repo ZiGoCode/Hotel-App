@@ -1,0 +1,121 @@
+<app-content>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <img src="../../../../assets/images/blank-profile-picture.png" class="img-fluid img-thumbnail">
+          </div>
+          <div class="form-group">
+            <label>อัพโหลดรูปภาพ</label>
+            <input type="file" name="img[]" class="file-upload-default">
+            <div class="input-group col-xs-12">
+              <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+              <span class="input-group-append">
+                <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <form action="pt-3" [formGroup]="form" (submit)="onSubmit()">
+            <div class="form-group">
+              <label for="">ชื่ออาคาร</label>
+              <input type="text" class="form-control form-control-lg" formControlName="hotel">
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">จำนวนชั้น</label>
+                  <input type="number" class="form-control form-control-lg" formControlName="couthotel">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">จำนวนห้องต่อชั้น</label>
+                  <input type="number" class="form-control form-control-lg" formControlName="cout">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea1">ที่อยู่</label>
+              <textarea class="form-control" id="exampleTextarea1" rows="3" formControlName="address"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="">เบอร์โทร</label>
+              <input type="tel" class="form-control form-control-lg" formControlName="tel">
+            </div>
+            <div class="form-group">
+              <label for="">ค่าน้ำ(บาท/หน่วย)</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-gradient-light text-dark">฿</span>
+                </div>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                  formControlName="Water">
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="">ค่าไฟ(บาท/หน่วย)</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-gradient-light text-dark">฿</span>
+                </div>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                  formControlName="electricity">
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="">ค่าประกันห้อง</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                    formControlName="insurance">
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="">ค่าห้องรายวัน</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                    formControlName="ratesday">
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="">ค่าห้องรายเดือน</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-gradient-warning text-white">฿</span>
+                </div>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                  formControlName="rates">
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">
+                <i class="mdi mdi-content-save"></i> Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-content>

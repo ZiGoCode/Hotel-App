@@ -1,0 +1,8 @@
+.font-logo{
+    background: -webkit-linear-gradient(#da8cff, #9a55ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-link{
+    cursor: pointer;
+}
