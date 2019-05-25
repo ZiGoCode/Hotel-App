@@ -23,8 +23,8 @@
           <h3 class="font-weight-normal mb-3">ว่าง
             <i class="mdi mdi-home mdi-24px float-right"></i>
           </h3>
-          <h1 class="mb-5">20</h1>
-          <h6 class="card-text">Increased by 60%</h6>
+          <!-- <h1 class="mb-5">20</h1> -->
+          <!-- <h6 class="card-text">Increased by 60%</h6> -->
         </div>
       </div>
     </div>
@@ -34,8 +34,8 @@
           <h3 class="font-weight-normal mb-3">จอง
             <i class="mdi mdi-home mdi-24px float-right"></i>
           </h3>
-          <h1 class="mb-5">0</h1>
-          <h6 class="card-text">Decreased by 10%</h6>
+          <!-- <h1 class="mb-5">0</h1> -->
+          <!-- <h6 class="card-text">Decreased by 10%</h6> -->
         </div>
       </div>
     </div>
@@ -45,8 +45,8 @@
           <h3 class="font-weight-normal mb-3">ไม่ว่าง
             <i class="mdi mdi-home mdi-24px float-right"></i>
           </h3>
-          <h1 class="mb-5">0</h1>
-          <h6 class="card-text">Increased by 5%</h6>
+          <!-- <h1 class="mb-5">0</h1> -->
+          <!-- <h6 class="card-text">Increased by 5%</h6> -->
         </div>
       </div>
     </div>
@@ -56,88 +56,66 @@
 
   <div class="card">
     <div class="card-body">
-      <h3 class="page-title">
+      <h1 class="page-title" *ngIf="dataHotel">
         <span class="page-title-icon bg-gradient-info text-white mr-2">
           <i class="mdi mdi-home"></i>
         </span>
-        Hotel
-      </h3>
+        <span class="hotel-title">{{dataHotel.hotel}}</span>
+      </h1>
       <br>
       <br>
-      <h4>ชั้น 1</h4>
-      <div class="row">
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          001
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          002
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          003
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          004
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          005
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          006
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          007
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          008
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          009
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          010
-        </div>
+
+      <div class="add-room">
+        <h4 class="text-room">เพิ่มห้อง</h4>
+        <button class="btn btn-light" (click)="onRoomid()">
+          <i class="mdi mdi-library-plus"></i> Add
+        </button>
       </div>
       <br>
-      <h4>ชั้น 2</h4>
+      <br>
       <div class="row">
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          011
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          012
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          013
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          014
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          015
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          016
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          017
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          018
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          019
-        </div>
-        <div class="col-sm bg-gradient-danger" (click)="onHotel()">
-          020
+        <div *ngFor="let item of dataroomId | keyvalue" class="col-sm bg-gradient-{{item.value.color}}" [class.active1]="activeteb == item.value.roomid" (click)="onHotel(item.value.roomid)">
+          {{item.value.roomid}}
         </div>
       </div>
+
+      <div *ngIf="showID">
+        <br>
+        <label for="">รห้สห้อง</label>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <input type="text" [(ngModel)]="dataRoomNg" #ctrl="ngModel" class="form-control form-control-lg">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-success" (click)="onSubmitRoom(dataRoomNg)" >
+              <i class="mdi mdi mdi-database-plus"></i> Save
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <br>
+      <br>
+
+      <!-- <div class="row">
+        <div *ngFor="let item of room" class="col-sm bg-gradient-success" (click)="onHotel(item)"
+          [class.active1]="activeteb == item">
+          {{item}}
+      </div>
+    </div>
+    <br> -->
+
       <div *ngIf="show">
         <br>
         <br>
-        <h2>ข้อมูลของผู้เช่า</h2>
+        <h2>ข้อมูลของผู้เช่า {{roomId}}</h2>
         <br>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-4 ">
             <div class="form-group">
               <img src="../../../../assets/images/blank-profile-picture.png" class="img-fluid img-thumbnail">
             </div>
@@ -152,15 +130,16 @@
               </div>
             </div>
           </div>
+
           <div class="col-sm-6">
             <form action="pt-3" [formGroup]="form" (submit)="onSubmit()">
               <div class="form-group">
                 <label for="">ชื่อ</label>
-                <input type="text" class="form-control form-control-lg" formControlName="hotel">
+                <input type="text" class="form-control form-control-lg" formControlName="lname">
               </div>
               <div class="form-group">
                 <label for="">นามสกุล</label>
-                <input type="text" class="form-control form-control-lg" formControlName="hotel">
+                <input type="text" class="form-control form-control-lg" formControlName="fname">
               </div>
 
               <div class="form-group">
@@ -172,11 +151,47 @@
                 <input type="tel" class="form-control form-control-lg" formControlName="tel">
               </div>
               <div class="row">
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">เลือกสถานะ</button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" (click)="setValue('จอง',dataHotel.insurance,roomId)">จอง</a>
+                          <a class="dropdown-item" (click)="setValue('รายวัน',dataHotel.ratesday,roomId)">รายวัน</a>
+                          <a class="dropdown-item" (click)="setValue('รายเดือน',dataHotel.rates,roomId)">รายเดือน</a>
+                          <!-- <div role="separator" class="dropdown-divider"></div> -->
+                          <!-- <a class="dropdown-item" href="#">Separated link</a> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <div class="form-control">
+                      {{name}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="statud">
+                <br>
+                <div class="row">
+                  <div class="col">จำนวนเงินที่ต้องชำระ : </div>
+                  <div class="col">
+                    <h4 style="color: brown">{{statud | number}} บาท</h4>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row">
                 <div class="col-sm-6">
                   <label for="">ค่าประกันห้อง</label>
                   <div class="input-group">
-                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                      formControlName="insurance">
+                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
                     <div class="input-group-append">
                       <span class="input-group-text">.00</span>
                     </div>
@@ -185,28 +200,26 @@
                 <div class="col-sm-6">
                   <label for="">ค่าห้องรายวัน</label>
                   <div class="input-group">
-                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                      formControlName="ratesday">
+                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
                     <div class="input-group-append">
                       <span class="input-group-text">.00</span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <br>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="">ค่าห้องรายเดือน</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text bg-gradient-warning text-white">฿</span>
                   </div>
-                  <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                    formControlName="rates">
+                  <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
                   <div class="input-group-append">
                     <span class="input-group-text">.00</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <hr>
               <!-- <div class="form-group">
                 <button class="btn btn-success" (click)="onSubmit()">
@@ -214,12 +227,30 @@
                 </button>
               </div> -->
             </form>
-            <button class="btn btn-success" (click)="onSubmit()">
+
+            <button class="btn btn-success" (click)="onSubmit(roomId)">
               <i class="mdi mdi-content-save"></i> Save
             </button>
+            <br>
+            <br>
+            <br>
           </div>
         </div>
       </div>
+
+
+
+      <br>
+      <br>
+      <!-- <footer class="">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="">{{dataHotel.hotel}} {{dataHotel.address}} Tel. {{dataHotel.tel}}
+          </span>
+          <span class="">Copyright © 2017
+            <i class="mdi mdi-heart text-danger"></i>
+          </span>
+        </div>
+      </footer> -->
     </div>
   </div>
 

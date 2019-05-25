@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
       .getUserLogin(this.authen.getAuthenticated())
       .then(userLogin => {
         this.UserLogin = userLogin;
-        console.log(userLogin);
+        // console.log(userLogin);
       })
       .catch(err => {
         this.authen.clearAuthenticated();

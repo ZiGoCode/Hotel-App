@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: AppURL.Login, pathMatch: 'full' },
+  { path: '', redirectTo: AppURL.Authen, pathMatch: 'full' },
   { path: AppURL.Login, component: LoginComponent },
   { path: AppURL.Register, component: RegisterComponent },
   { path: AppURL.Authen, loadChildren: './authentication/authentication.module#AuthenticationModule' }

@@ -19,7 +19,7 @@ export interface IHotel {
     insurance: string;
     ratesday: string;
     rates: string;
-
+    room: string;
     id?: any;
     image?: string;
     created?: Date;
